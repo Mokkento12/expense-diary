@@ -36,6 +36,8 @@ addExpenseBtn.addEventListener("click", () => {
 
   amountInput.value = "";
   categoryInput.value = "";
+
+  saveExpenses();
 });
 
 clearExpensesBtn.addEventListener("click", () => {
@@ -51,3 +53,37 @@ clearExpensesBtn.addEventListener("click", () => {
 
   console.log("Очистка!");
 });
+
+function saveExpenses() {
+  const expenses = {
+    items: Array.from(expenseList.children).map((li) => li.textContent),
+    total: totalExpenses,
+  };
+
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+}
+
+function loadExpenses() {
+  const saveData = localStorage.getItem("expenses");
+
+  if (saveData) {
+    const expenses = JSON.parse(saveData);
+
+    // Восстанавливаем элементы списка
+
+    expenses.items.forEach((item) => {
+      const expenseItem = document.createElement("li");
+      expenseItem.textContent = item;
+      expenseList.appendChild(expenseItem);
+    });
+
+    // Восстанавливаем общую сумму
+
+    totalExpenses = expenses.total || 0;
+    totalExpenseDisplay.textContent = totalExpenses.toFixed(2);
+  }
+}
+
+// Загрузка
+
+loadExpenses();
