@@ -3,6 +3,7 @@ const amountInput = document.getElementById("amount");
 const categoryInput = document.getElementById("category");
 const expenseList = document.getElementById("expense-list");
 const totalExpenseDisplay = document.getElementById("total-expenses");
+const clearExpensesBtn = document.getElementById("clear-expenses-btn");
 
 let totalExpenses = 0;
 
@@ -35,4 +36,18 @@ addExpenseBtn.addEventListener("click", () => {
 
   amountInput.value = "";
   categoryInput.value = "";
+});
+
+clearExpensesBtn.addEventListener("click", () => {
+  // Удаляем все элементы
+
+  expenseList.innerHTML = "";
+
+  // Сброс общей суммы
+
+  totalExpenses = 0;
+
+  totalExpenseDisplay.textContent = totalExpenses.toFixed(2);
+
+  console.log("Очистка!");
 });
