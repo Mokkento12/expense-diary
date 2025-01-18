@@ -2,6 +2,9 @@ const addExpenseBtn = document.getElementById("add-expense-btn");
 const amountInput = document.getElementById("amount");
 const categoryInput = document.getElementById("category");
 const expenseList = document.getElementById("expense-list");
+const totalExpenseDisplay = document.getElementById("total-expenses");
+
+let totalExpenses = 0;
 
 addExpenseBtn.addEventListener("click", () => {
   const amount = parseFloat(amountInput.value);
@@ -22,6 +25,11 @@ addExpenseBtn.addEventListener("click", () => {
   // Добавляем элемент в список
 
   expenseList.appendChild(expenseItem);
+
+  // Обновляем сумму
+
+  totalExpenses += amount;
+  totalExpenseDisplay = totalExpenses.toFixed(2);
 
   // Очищаем поля ввода
 
