@@ -9,15 +9,24 @@
 <body>
     <h1>Дневник расходов</h1>
     <div id="expense-tracker">
+        <!-- Поле для ввода суммы -->
         <input type="number" id="amount" placeholder="Сумма" min="1">
+        <!-- Поле для ввода категории -->
         <input type="text" id="category" placeholder="Категория">
+        <!-- Кнопка для добавления расхода -->
         <button id="add-expense-btn">Добавить</button>
+        <!-- Фильтр по категориям -->
+        <select id="filter-category">
+            <option value="all">Все категории</option>
+        </select>
         <h2>Список расходов</h2>
+        <!-- Список расходов -->
         <ul id="expense-list"></ul>
+        <!-- Общая сумма расходов -->
         <h3>Общая сумма расходов: <span id="total-expenses">0</span> ₽</h3>
+        <!-- Кнопка для очистки всех расходов -->
         <button id="clear-expenses-btn">Очистить все</button>
     </div>
-    <!-- /#expense-tracker -->
     <script src="script.js"></script>
 </body>
 </html>
