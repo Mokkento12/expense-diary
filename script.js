@@ -29,7 +29,7 @@ addExpenseBtn.addEventListener("click", () => {
   // Обновляем сумму
 
   totalExpenses += amount;
-  totalExpenseDisplay = totalExpenses.toFixed(2);
+  totalExpenseDisplay.textContent = totalExpenses.toFixed(2);
 
   // Очищаем поля ввода
 
